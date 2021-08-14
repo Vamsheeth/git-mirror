@@ -1,0 +1,57 @@
+# ListenAddr is the address the web server listens on for serving the mirrors.
+# Defaults to :8080
+ListenAddr   = ":8172"
+# Interval is the default interval for updating mirrors, can be overridden per
+# repo.  Defaults to 15 minutes.
+Interval     = "15m"
+# Base path for storing mirrors, absolute or relative.  Defaults to "."
+BasePath = "/tmp"
+#No. of Retries to be made if a repo failed to update 
+#Retries	 = ""
+#No. of Parallel processes to run at a time
+#Counter	 = ""
+#Git Executable Path
+#GitPath	= ""
+
+
+# An example of a public mirror taking defaults from above.  The Name is
+# generated from the URL by just taking the host and path.
+#
+# Will be mirrored at at http://localhost:8080/github.com/beefsack/git-mirror.git
+#[[Repo]]
+#Origin = "http://android.googlesource.com/platform/build/"
+#Name   = "build"
+
+[[Repo]]
+Origin = "http://android.googlesource.com/platform/build/kati"
+#Name   = "kati"
+
+[[Repo]]
+Origin = "http://android.googlesource.com/platform/build/blueprint"
+#Name   = "blueprint"
+
+[[Repo]]
+Origin = "http://android.googlesource.com/platform/build/soong"
+#Name   = "soong"
+
+
+# Repos whose Origin is not a URL is simplified to the last part after any @
+# symbol with any : symbol converted to a /
+#
+# Will be mirrored at http://localhost:8080/github.com/toml-lang-toml.git
+#[[Repo]]
+#Origin = "git@github.com:toml-lang/toml.git"
+
+# Repos can specify their own Interval to override the global setting.
+#
+# Will be mirrored at http://localhost:8080/github.com/neovim/neovim.git
+#[[Repo]]
+#Origin   = "https://github.com/neovim/neovim.git"
+#Interval = "10m"
+
+# It is also possible to set custom names for accessing the repos.
+#
+# Will be mirrored at http://localhost:8080/custom-name
+#[[Repo]]
+#Origin = "git@github.com:toml-lang/toml.git"
+#Name   = "custom-name"
